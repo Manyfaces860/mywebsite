@@ -1,0 +1,51 @@
+<Text fontSize={"2xl"} > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tenetur. </Text>
+        <Box width={'3xl'} bgColor={'yellow.300'} position={'relative'}>/</Box>
+        <Text fontSize={"2xl"} > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tenetur. </Text>
+        <Box></Box>
+        <Text fontSize={"2xl"} > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tenetur. </Text>
+        <Box></Box>
+        <Text fontSize={"2xl"} > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tenetur. </Text>
+        <Box></Box>
+        <Text fontSize={"2xl"} > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, tenetur. </Text>
+        <Box></Box>
+
+
+
+        <label htmlFor="organisation">Organisation</label>
+        <Input
+          {...register("organisation", { required: true, minLength: 6 })}
+          bgColor={"blackAlpha.700"}
+          style={{ transition: "all 0.3s ease" }}
+          _hover={{ height: "100px" }}
+          className="input"
+          id="organisation"
+          type="text"
+        />
+        <label htmlFor="email">Email</label>
+        <Input
+          {...register("email", { required: true })}
+          bgColor={"blackAlpha.700"}
+          style={{ transition: "all 0.3s ease" }}
+          _hover={{ height: "100px" }}
+          className="input"
+          id="email"
+          type="email"
+        />
+        <label htmlFor="phone">Phone</label>
+        <Input
+          {...register("phone")}
+          bgColor={"blackAlpha.700"}
+          style={{ transition: "all 0.3s ease" }}
+          _hover={{ height: "100px" }}
+          className="input"
+          id="phone"
+          type="tele"
+        />
+        <label htmlFor="comment">comment</label>
+        <Input
+          {...register("comment")}
+          bgColor={"blackAlpha.700"}
+          className="input form-control"
+          id="comment"
+          type="text"
+        />
