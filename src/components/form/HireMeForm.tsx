@@ -2,30 +2,38 @@ import { Button, Heading, Input, Stack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import "./HireMeForm.css";
 
-// interface Props {
-//   onSubmit: (data: formData) => void;
-// }
+interface formData {
+  name: string;
+  organisation: string;
+  email: string;
+  phone?: number;
+  comment?: string;
+}
+interface Props {
+  onSubmit: (data: formData) => void;
+}
 
-const HireMeForm = () => {
-  interface formData {
-    name: string;
-    organisation: string;
-    email: string;
-    phone?: number;
-    comment?: string;
-  }
-
+const HireMeForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    reset,
+    formState: { errors },
   } = useForm<formData>();
 
+
   return (
-    <Stack className="bg-grad" h={"700px"} gap={'7'}>
-      <Heading fontSize={'5xl'} color={'CaptionText'} >Contact Me</Heading>
-      
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+    <Stack className="bg-grad" h={"700px"} gap={"7"}>
+      <Heading fontSize={"5xl"} color={"CaptionText"}>
+        Contact Me
+      </Heading>
+
+      <form
+        onSubmit={handleSubmit((data) => {
+          onSubmit(data);
+          reset();
+        })}
+      >
         <label htmlFor="name" className="form-label">
           Name
         </label>
@@ -55,7 +63,9 @@ const HireMeForm = () => {
         {errors.organisation?.type === "minLength" && (
           <p>minimum length of this field is 3.</p>
         )}
-        {errors.organisation?.type === "required" && <p>this area is required.</p>}
+        {errors.organisation?.type === "required" && (
+          <p>this area is required.</p>
+        )}
         <label htmlFor="email" className="form-label">
           email
         </label>

@@ -34,7 +34,7 @@ const Skills = () => {
         <Heading>
             Skills I can Offer.
         </Heading>
-        {skills.map((object) => (<Box width={'max-content'} bgColor={'red.400'} animation={textanimation} fontSize={'20px'} ><Text whiteSpace={'normal'} fontSize={'inherit'} color={"black"} >{object.text}</Text></Box>))}
+        {skills.map((object) => (<Box width={'max-content'} bgColor={'red.400'} animation={textanimation} fontSize={'20px'} key={object.text.substring(4)} ><Text whiteSpace={'normal'} fontSize={'inherit'} color={"black"} >{object.text}</Text></Box>))}
     </Stack>
   )
 }
