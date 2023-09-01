@@ -1,35 +1,35 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
+import { AxiosRequestConfig } from "axios";
 
 export interface PostResponse {
-  status: string;
+  status?: string | '';
 }
 
-const useData = (endpoint: string, JsonStringData: string) => {
-  const [Data, setData] = useState<PostResponse>();
-  const [error, setError] = useState();
-  const [isLoading, setLoading] = useState(false);
+const useData = (endpoint: string, requestConfig : AxiosRequestConfig , deps : any[] ) => {
+  const [responseData, setResponseData] = useState<PostResponse>();
+  const [Error, setError] = useState();
+  // const [isLoading, setLoading] = useState(false);
 
-  // const controller = new AbortController();
+
   useEffect(() => {
-      const controller = new AbortController();
+    const controller = new AbortController();
 
-      setLoading(true);
-      apiClient
-        .post<PostResponse>(endpoint, JsonStringData)
-        .then((res) => {
-          setData(res.data);
-          setLoading(false);
-        })
-        .catch((err) => {
-          setError(err.message);
-          setLoading(false);
-        });
+    apiClient
+      .post<PostResponse>(endpoint, { signal: controller.signal , ...requestConfig })
+      .then((res) => {
+        setResponseData(res.data);
+        // setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        // setLoading(false);
+      });
 
-      // return () => controller.abort();
-    },[]);
+  },deps ? [...deps] : [])
 
-  return { Data, error, isLoading };
+  return { responseData, Error };
+
 };
 
 export default useData;

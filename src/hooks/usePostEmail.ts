@@ -1,23 +1,19 @@
 import { Datatopass } from "../App";
+import usePost from "./usePost";
 
 
 const usePostEmail = () => {
-    const postEmail = async (data: Datatopass) => {
+    const postEmail = (data: Datatopass) => {
       const userDataJSON = JSON.stringify(data);
   
       try {
-        const response = await fetch('https://mywebsiteapi-1-q7439559.deta.app/send', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: userDataJSON,
-        });
+        // removed await because it said there is no effect of await on this line/statement
+        const { Data , Error } = usePost(userDataJSON);
   
-        const responseData = await response.json();
+        const responseData = Data;
         return responseData;
-      } catch (error) {
-        console.error('Error posting email:', error);
+      } catch (Error) {
+        console.error('Error posting email:', Error);
         return null;
       }
     };

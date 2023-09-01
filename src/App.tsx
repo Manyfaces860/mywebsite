@@ -4,63 +4,41 @@ import Hero from "./components/hero/Hero";
 import Whyhireme from "./components/whyhireme/Whyhireme";
 import Skills from "./components/skills/Skills";
 import AdditionalInfo from "./components/additionalinfo/AdditionalInfo";
-import HireMeForm from "./components/form/HireMeForm";
-import usePostEmail from "./hooks/usePostEmail";
-import { useState, useEffect } from "react";
+import { formData } from "./components/form/HireMeForm";
+import { useState } from "react";
+import FormSection from "./components/formsection/FormSection";
 
-export interface Datatopass {
-  name: string;
-  organisation: string;
-  email: string;
-  phone?: number;
-  comment?: string;
+export interface formdetails {
+  formdetail: formData;
 }
 
-function App() {
-  const [stateData, setData] = useState<Datatopass>();
-  const [responseData, setResponseData] = useState<any>(null);
 
-  const postEmail = usePostEmail();
-  // useEffect will run the first time regardless of dependencies
-  useEffect(() => {
-    if (stateData) {
-      const fetchData = async () => {
-        const response = await postEmail(stateData);
-        // here the response data is not yet set
-        setResponseData(response);
-        // this will give null
-        console.log(responseData);   
-      };
-      console.log("second time");
-      fetchData();
-    }
-  }, [stateData]);
-  
-  const handlePostEmail = async (data: Datatopass) => {
-    setData(data);
-  };
-  
+
+
+function App() {
+  const [details, setDetails] = useState<formdetails>({} as formdetails);
+
   // console.log(Data);
-  
+
   // when you click the submit button then first the data is set thenn line 34 and 48 is executed and all of them print the same object
   // which means data is getting set properly
   // but why are the lines excecuted after postemail function?
-  
-  // answer to above question -> when the postemail function is executed , the state gets changed and which 
-  //                             causes the component to rerender by diffing algo to differentiate the changes 
+
+  // answer to above question -> when the postemail function is executed , the state gets changed and which
+  //                             causes the component to rerender by diffing algo to differentiate the changes
   //                             in the component and rerender the changed parts of the component. in this case
   //                             nothing is changed , so it logs the changed state data to the console.
-  // 
-  // but why the emails i get after filling the form always contains previous state form values or in case of filling the form 
+  //
+  // but why the emails i get after filling the form always contains previous state form values or in case of filling the form
   // first time after reload ,it doesn't send i get a cors error?
 
-  // answer to above question -> when we fill the form first time then it does not have any values so it 
-  //                             uses default string values defined by me as userDataJson to send as body 
-  //                             and after filling the form for first time we set the state to the values 
+  // answer to above question -> when we fill the form first time then it does not have any values so it
+  //                             uses default string values defined by me as userDataJson to send as body
+  //                             and after filling the form for first time we set the state to the values
   //                             we entered as a result the new userDataJson becomes the values we entered when
   //                             we filled the form for the first time and now if we fill the form second time
   //                             the first filled form userDataJson is used to send request.
-  
+
   return (
     <Grid
       templateAreas={`"hero" "whyhireme" "skills" "additionalinfo" "form"`}
@@ -79,7 +57,13 @@ function App() {
         <AdditionalInfo />
       </GridItem>
       <GridItem area={"form"}>
-        <HireMeForm onSubmit={(data) => handlePostEmail(data)} />
+        <FormSection
+          HandleonSubmit={(formdetail) => {
+            setDetails({ ...details, formdetail });
+            console.log(formdetail);
+          }}
+          detail={details}
+        />
       </GridItem>
     </Grid>
   );

@@ -1,9 +1,15 @@
+import { formdetails } from "../App";
 import useData from "./useData";
 
-const usePost = (JsonStringData : string) =>
+const usePost = (details : formdetails) =>
   useData(
     "/send",
-    JsonStringData
-  );
+    {
+      data : {
+        data : JSON.stringify(details.formdetail),
+      }
+    },
+    [details]
+    );
   
 export default usePost;

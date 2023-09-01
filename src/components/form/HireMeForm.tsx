@@ -2,15 +2,15 @@ import { Button, Heading, Input, Stack } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import "./HireMeForm.css";
 
-interface formData {
-  name: string;
+export interface formData {
+  name: string | 'noname';
   organisation: string;
   email: string;
   phone?: number;
   comment?: string;
 }
-interface Props {
-  onSubmit: (data: formData) => void;
+export interface Props {
+  onSubmit: (formdetail: formData) => void;
 }
 
 const HireMeForm = ({ onSubmit }: Props) => {
@@ -23,14 +23,14 @@ const HireMeForm = ({ onSubmit }: Props) => {
 
 
   return (
-    <Stack className="bg-grad" h={"700px"} gap={"7"}>
+    <Stack className="bg-grad" h={"700px"} gap={"7"} padding={'50px'} >
       <Heading fontSize={"5xl"} color={"CaptionText"}>
         Contact Me
       </Heading>
 
       <form
-        onSubmit={handleSubmit((data) => {
-          onSubmit(data);
+        onSubmit={handleSubmit((formdetail) => {
+          onSubmit(formdetail);
           reset();
         })}
       >
