@@ -3,11 +3,24 @@
     width: '100%';
     height: 600px;
     background-size: cover;
+    display: flex;
+    justify-content: start;
 }
 
 .aboutme{
     display: flex;
     align-items: center;
-    padding: 70px;
+    padding: 50px;
 }
 
+.heroimage .content {
+    width: 36%;
+}
+
+.heroimage .content .name{
+    font-size: 2em;
+    text-align: center;
+}
+/* .heroimage .content .nbbtn{
+    font-size: 1.4em;
+} */

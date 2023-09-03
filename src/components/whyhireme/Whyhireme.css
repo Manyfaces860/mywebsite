@@ -1,6 +1,11 @@
 .whyhireme{
     animation: slide 2.1s ease-in-out 0s infinite;
     position: relative;
+    width: 100%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes slide {
@@ -11,4 +16,19 @@
         left: 0px;
     }
     
+}
+
+.textdiv{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text{
+    font-size: 7.7rem;
+    color: yellow;
+    font-weight: 700;
+    text-align: center;
 }

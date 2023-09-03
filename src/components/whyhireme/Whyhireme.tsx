@@ -3,14 +3,14 @@ import "./Whyhireme.css"
 
 const Whyhireme = () => {
   return (
-    <Box w='100%' h={'600px'} paddingTop={'200px'}  className="whyhireme" >
-      <Heading
-        fontSize={"9xl"}
-        textAlign={"center"}
-        textColor={"yellow"}
-      >
-        Why hire me?
-      </Heading>
+    <Box w='100%' h='600px' className="whyhireme" >
+      <div className="textdiv">
+        <p
+          className="text"
+        >
+          Why hire me?
+        </p>
+      </div>
     </Box>
   );
 };

@@ -4,14 +4,13 @@ import "./Hero.css"
 
 const Hero = () => {
   return (
-    <>
       <div className="heroimage aboutme">
-        <Stack direction={"column"}>
-          <Heading fontFamily={'monospace'} color={"white"}>Abhishek Gupta</Heading>
-          <Button fontFamily={'sans-serif'} id="aboutbtn" colorScheme='pink' variant='ghost' >About me</Button> // now its working coz i didnt add ChakraProvider to main.tsx
+        <Stack direction={"column"} className="content" >
+          <Heading fontFamily={'monospace'} color={"white"} className="name" >Abhishek Gupta</Heading>
+          <Button fontFamily={'sans-serif'} id="aboutbtn" colorScheme='pink' variant='ghost' className="nbbtn" >About me</Button> // now its working coz i didnt add ChakraProvider to main.tsx
         </Stack>
       </div>
-    </>
+    
   );
 };
 
