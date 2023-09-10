@@ -9,7 +9,13 @@ interface Props {
 }
 
 const FormSection = ({ HandleonSubmit, detail }: Props) => {
-  const { responseData, Error } = usePost(detail);
+  // let ResponseData : PostResponse | undefined;
+  // let error : string | undefined ;
+  // if (detail.formdetail.name !== 'noname') {
+    const { responseData, Error } = usePost(detail);
+    // ResponseData = responseData ;
+    // error = Error ;
+  // }
 
   return (
     <HStack
@@ -17,11 +23,6 @@ const FormSection = ({ HandleonSubmit, detail }: Props) => {
       justifyContent={"space-around"}
       bgColor={"whatsapp.600"}
     >
-      {responseData?.status === "" ? (
-        <Heading>{responseData?.status}</Heading>
-      ) : (
-        <Heading>{Error}</Heading>
-      )}
       <HireMeForm onSubmit={(formdetail) => HandleonSubmit(formdetail)} />
     </HStack>
   );

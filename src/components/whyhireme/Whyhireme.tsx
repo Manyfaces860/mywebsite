@@ -1,16 +1,18 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Stack } from "@chakra-ui/react";
 import "./Whyhireme.css"
 
 const Whyhireme = () => {
   return (
     <Box w='100%' h='600px' className="whyhireme" >
-      <div className="textdiv">
-        <p
+      <Stack className="textdiv" >
+        <Heading
           className="text"
+          color={"yellow"}
+          fontSize={{ base: "60px", md: "100px", lg: "200px" }}
         >
           Why hire me?
-        </p>
-      </div>
+        </Heading>
+      </Stack>
     </Box>
   );
 };

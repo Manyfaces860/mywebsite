@@ -3,7 +3,7 @@ import apiClient from "../services/apiClient";
 import { AxiosRequestConfig } from "axios";
 
 export interface PostResponse {
-  status?: string | '';
+  status?: any | '';
 }
 
 const useData = (endpoint: string, requestConfig : AxiosRequestConfig , deps : any[] ) => {
@@ -19,6 +19,7 @@ const useData = (endpoint: string, requestConfig : AxiosRequestConfig , deps : a
       .post<PostResponse>(endpoint, { signal: controller.signal , ...requestConfig })
       .then((res) => {
         setResponseData(res.data);
+        console.log(res.data);
         // setLoading(false);
       })
       .catch((err) => {
