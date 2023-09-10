@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text, keyframes } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text } from "@chakra-ui/react";
 import "./Skills.css";
 
 const Skills = () => {
