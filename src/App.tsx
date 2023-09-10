@@ -47,7 +47,7 @@ function App() {
       <GridItem area={"hero"}>
         <Hero />
       </GridItem>
-      <GridItem area={"whyhireme"}>
+      <GridItem area={"whyhireme"} bg={'whiteAlpha.100'} >
         <Whyhireme />
       </GridItem>
       <GridItem area={"skills"} bg={"red.400"}>
