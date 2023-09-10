@@ -1,5 +1,4 @@
-import { Heading, Stack, calc } from "@chakra-ui/react"
-import { calcLength } from "framer-motion"
+import { Heading, Stack  } from "@chakra-ui/react"
 
 
 

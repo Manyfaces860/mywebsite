@@ -18,22 +18,22 @@ const Skills = () => {
     },
   ];
 
-  const animation = keyframes`
-        0%{
-            background : black
-        }
-        30%{
-            background : #F56565
-        }
-        60%{
-            background : black
-        }
-        100%{
-            background : #F56565
-        }
-    `;
+  // const animation = keyframes`
+  //       0%{
+  //           background : black
+  //       }
+  //       30%{
+  //           background : #F56565
+  //       }
+  //       60%{
+  //           background : black
+  //       }
+  //       100%{
+  //           background : #F56565
+  //       }
+  //   `;
 
-  const textanimation = `${animation} 3 0.5s 3s forward`;
+  // const textanimation = `${animation} 3 0.5s 3s forward`;
 
   return (
     <section id="skillssection" >

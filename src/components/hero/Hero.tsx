@@ -1,5 +1,5 @@
 import { Button, Heading, Stack } from "@chakra-ui/react";
-import { Link as LLink, animateScroll as scroll } from "react-scroll";
+import { Link as LLink } from "react-scroll";
 import "./Hero.css";
 
 const Hero = () => {

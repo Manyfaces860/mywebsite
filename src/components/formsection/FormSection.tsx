@@ -1,4 +1,4 @@
-import { Flex, HStack, Heading } from "@chakra-ui/react";
+import { HStack  } from "@chakra-ui/react";
 import HireMeForm, { formData } from "../form/HireMeForm";
 import usePost from "../../hooks/usePost";
 import { formdetails } from "../../App";
@@ -12,7 +12,7 @@ const FormSection = ({ HandleonSubmit, detail }: Props) => {
   // let ResponseData : PostResponse | undefined;
   // let error : string | undefined ;
   // if (detail.formdetail.name !== 'noname') {
-    const { responseData, Error , isLoading } = usePost(detail);
+    const { isLoading } = usePost(detail);
     // ResponseData = responseData ;
     // error = Error ;
   // }
