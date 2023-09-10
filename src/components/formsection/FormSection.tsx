@@ -12,7 +12,7 @@ const FormSection = ({ HandleonSubmit, detail }: Props) => {
   // let ResponseData : PostResponse | undefined;
   // let error : string | undefined ;
   // if (detail.formdetail.name !== 'noname') {
-    const { responseData, Error } = usePost(detail);
+    const { responseData, Error , isLoading } = usePost(detail);
     // ResponseData = responseData ;
     // error = Error ;
   // }
@@ -23,7 +23,7 @@ const FormSection = ({ HandleonSubmit, detail }: Props) => {
       justifyContent={"space-around"}
       bgColor={"whatsapp.600"}
     >
-      <HireMeForm onSubmit={(formdetail) => HandleonSubmit(formdetail)} />
+      <HireMeForm onSubmit={(formdetail) => HandleonSubmit(formdetail)} loadingstatus = {isLoading} />
     </HStack>
   );
 };

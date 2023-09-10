@@ -24,9 +24,10 @@ export interface formData {
 }
 export interface Props {
   onSubmit: (formdetail: formData) => void;
+  loadingstatus : boolean;
 }
 
-const HireMeForm = ({ onSubmit }: Props) => {
+const HireMeForm = ({ onSubmit , loadingstatus }: Props) => {
   const {
     register,
     handleSubmit,
@@ -34,7 +35,6 @@ const HireMeForm = ({ onSubmit }: Props) => {
     formState: { errors },
   } = useForm<formData>();
 
-  const isLoading = false;
 
   return (
     <div className="container" id="contactmee">
@@ -131,6 +131,7 @@ const HireMeForm = ({ onSubmit }: Props) => {
               <p>this area is required.</p>
             )}
             <Button
+              isLoading={loadingstatus}
               type="submit"
               loadingText="Submitting"
               colorScheme="teal"

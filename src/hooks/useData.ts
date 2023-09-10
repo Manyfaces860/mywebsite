@@ -9,27 +9,28 @@ export interface PostResponse {
 const useData = (endpoint: string, requestConfig : AxiosRequestConfig , deps : any[] ) => {
   const [responseData, setResponseData] = useState<PostResponse>();
   const [Error, setError] = useState();
-  // const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
 
   useEffect(() => {
     const controller = new AbortController();
 
+    setLoading(true);
     apiClient
       .post<PostResponse>(endpoint, { signal: controller.signal , ...requestConfig })
       .then((res) => {
         setResponseData(res.data);
         console.log(res.data);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
-        // setLoading(false);
+        setLoading(false);
       });
 
   },deps ? [...deps] : [])
 
-  return { responseData, Error };
+  return { responseData, Error , isLoading };
 
 };
 
