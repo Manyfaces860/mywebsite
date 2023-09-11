@@ -60,7 +60,7 @@ const Skills = () => {
             >
               <Text
                 whiteSpace={"normal"}
-                color={"black"}
+                textColor={'black'}
                 fontSize={["sm", "md", "lg", "xl"]}
               >
                 <p className="skillstext">{object.text}</p>

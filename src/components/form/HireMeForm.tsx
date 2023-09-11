@@ -156,13 +156,13 @@ const HireMeForm = ({ onSubmit , loadingstatus }: Props) => {
               <GitHubLogo />
             </Link>{" "}
           </Button>
-          <Button className="Logobtn">
+          <Button className="Logobtn" >
             {" "}
             <Link href="https://www.linkedin.com/in/abhishek-gupta-manyfaces860/">
               <LinkedInLogo />
             </Link>{" "}
           </Button>
-          <Button className="Logobtn">
+          <Button className="Logobtn" >
             {" "}
             <Link href="https://www.instagram.com/selami.sauc/">
               <InstagramLogo />
